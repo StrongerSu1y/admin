@@ -34,7 +34,7 @@ import CountTo from '_c/count-to'
 import { ChartPie, ChartBar } from '_c/charts'
 import Example from './example.vue'
 export default {
-  name: '首页',
+  name: 'home',
   components: {
     InforCard,
     CountTo,

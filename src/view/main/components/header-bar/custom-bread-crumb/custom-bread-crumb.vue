@@ -9,9 +9,10 @@
   </div>
 </template>
 <script>
-import { showTitle } from '_c/common/util'
+import {showTitle} from '_c/common/util'
 import CommonIcon from '_c/common-icon'
 import './custom-bread-crumb.less'
+
 export default {
   name: 'customBreadCrumb',
   components: {
@@ -33,6 +34,8 @@ export default {
   },
   methods: {
     showTitle (item) {
+      var title = showTitle(item, this)
+      console.log('1111111111111111111 ' + title)
       return showTitle(item, this)
     },
     isCustomIcon (iconName) {

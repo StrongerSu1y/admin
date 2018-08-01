@@ -125,7 +125,7 @@ export default {
     this.addTag(this.$store.state.app.homeRoute)
     this.setBreadCrumb(this.$route.matched)
     // 设置初始语言
-    this.setLocal(this.$i18n.locale)
+    // this.setLocal(this.$i18n.locale)
   }
 }
 </script>
