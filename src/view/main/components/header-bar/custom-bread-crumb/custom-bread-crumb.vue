@@ -34,8 +34,6 @@ export default {
   },
   methods: {
     showTitle (item) {
-      var title = showTitle(item, this)
-      console.log('1111111111111111111 ' + title)
       return showTitle(item, this)
     },
     isCustomIcon (iconName) {

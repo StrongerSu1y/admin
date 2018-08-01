@@ -138,15 +138,15 @@ export default [
         },
         component: () => import('@/view/components/count-to/count-to.vue')
       },
-      {
-        path: 'tables_page',
-        name: 'tables_page',
-        meta: {
-          icon: 'md-grid',
-          title: '多功能表格'
-        },
-        component: () => import('@/view/components/tables/tables.vue')
-      },
+      // {
+      //   path: 'tables_page',
+      //   name: 'tables_page',
+      //   meta: {
+      //     icon: 'md-grid',
+      //     title: '多功能表格'
+      //   },
+      //   component: () => import('@/view/components/tables/tables.vue')
+      // },
       {
         path: 'icons_page',
         name: 'icons_page',

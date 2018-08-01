@@ -20,7 +20,7 @@ const btns = {
         h('Icon', {
           props: {
             type: 'trash-b',
-            size: 18
+            size: 16
           }
         })
       ])

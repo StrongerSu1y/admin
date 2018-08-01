@@ -5,11 +5,11 @@
         <Option v-for="item in columns" v-if="item.key !== 'handle'" :value="item.key" :key="`search-col-${item.key}`">{{ item.title }}</Option>
       </Select>
       <Input @on-change="handleClear" clearable placeholder="输入关键字搜索" class="search-input" v-model="searchValue"/>
-      <Button @click="handleSearch" class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
+      <Button @click="handleSearch" class="search-btn" type="primary">搜索</Button>
     </div>
     <Table
       ref="tablesMain"
-      :data="insideTableData"
+      :data="pageInsideData"
       :columns="insideColumns"
       :stripe="stripe"
       :border="border"
@@ -38,14 +38,6 @@
       <slot name="footer" slot="footer"></slot>
       <slot name="loading" slot="loading"></slot>
     </Table>
-    <div v-if="searchable && searchPlace === 'bottom'" class="search-con search-con-top">
-      <Select v-model="searchKey" class="search-col">
-        <Option v-for="item in columns" v-if="item.key !== 'handle'" :value="item.key" :key="`search-col-${item.key}`">{{ item.title }}</Option>
-      </Select>
-      <Input placeholder="输入关键字搜索" class="search-input" v-model="searchValue"/>
-      <Button class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
-    </div>
-    <a id="hrefToExportTable" style="display: none;width: 0px;height: 0px;"></a>
   </div>
 </template>
 
@@ -144,7 +136,8 @@ export default {
   data () {
     return {
       insideColumns: [],
-      insideTableData: [],
+      insideData: [],
+      pageInsideData: [],
       edittingCellId: '',
       edittingText: '',
       searchValue: '',
@@ -157,7 +150,7 @@ export default {
         return h(TablesEdit, {
           props: {
             params: params,
-            value: this.insideTableData[params.index][params.column.key],
+            value: this.insideData[params.index][params.column.key],
             edittingCellId: this.edittingCellId,
             editable: this.editable
           },
@@ -209,17 +202,21 @@ export default {
       this.searchKey = this.columns[0].key !== 'handle' ? this.columns[0].key : (this.columns.length > 1 ? this.columns[1].key : '')
     },
     handleClear (e) {
-      if (e.target.value === '') this.insideTableData = this.value
+      if (e.target.value === '') this.insideData = this.value
     },
     handleSearch () {
-      this.insideTableData = this.value.filter(item => item[this.searchKey].indexOf(this.searchValue) > -1)
+      this.insideData = this.value.filter(item => item[this.searchKey].indexOf(this.searchValue) > -1)
+      this.pageInsideData = this.insideData
+      this.pageTotal = this.pageInsideData.length
+      console.log('2222222222 ', this.insideData, this.pageTotal)
     },
     handleTableData () {
-      this.insideTableData = this.value.map((item, index) => {
+      this.insideData = this.value.map((item, index) => {
         let res = item
         res.initRowIndex = index
         return res
       })
+      this.pageInsideData = this.insideData
     },
     exportCsv (params) {
       this.$refs.tablesMain.exportCsv(params)

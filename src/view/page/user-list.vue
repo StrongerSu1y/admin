@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import * as table from './user/search'
+import * as data from './data/data'
 import axios from 'axios'
 
 export default {
@@ -42,7 +42,7 @@ export default {
     return {
       searchConName: '',
       searchConTel: '',
-      columns1: table.columns1,
+      columns1: data.userTitle,
       userList: [],
       pageUserList: [],
       initTable: [],
