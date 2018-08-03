@@ -1,35 +1,39 @@
 <style lang="less">
-    @import '../../style/common.less';
-    @import './user/table.less';
+  @import '../../style/common.less';
+  @import './user/table.less';
 </style>
 
 <template>
-    <div style="height: 100%">
-        <Row :gutter="10">
-            <Col span="24">
-                <Card>
-                    <p slot="title">
-                        <Icon type="help-buoy"></Icon>
-                        请输入查询条件
-                    </p>
-                    <Row>
-                        <Input v-model="searchConName" @on-change="handleSearch2" icon="search" placeholder="请输入姓名..."
-                               style="width: 200px"/>
-                        <Input v-model="searchConTel" @on-change="handleSearch2" icon="search" placeholder="请输入手机号..."
-                               style="width: 200px"/>
-                    </Row>
-                    <Row class="margin-top-10 searchable-table-con1">
-                        <Table :columns="columns1" :data="pageUserList"></Table>
-                    </Row>
-                </Card>
-            </Col>
+  <div style="height: 100%">
+    <Row :gutter="10">
+      <Col span="24">
+      <Card>
+        <p slot="title">
+          <Icon type="help-buoy"></Icon>
+          请输入查询条件
+        </p>
+        <Row>
+          用户名&nbsp;&nbsp;&nbsp;&nbsp;<Input v-model="searchConName" @on-change="handleSearch2" icon="search"
+                                            placeholder="请输入姓名..."
+                                            style="width: 200px"/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号码&nbsp;&nbsp;&nbsp;&nbsp;<Input v-model="searchConTel"
+                                                                                             @on-change="handleSearch2"
+                                                                                             icon="search"
+                                                                                             placeholder="请输入手机号..."
+                                                                                             style="width: 200px"/>
         </Row>
-        <div class="page-style">
-            <Page :total="pageTotal" :current="pageNum" :page-size="pageSize" show-elevator show-total placement="top"
-                  @on-change="changePage"></Page>
+        <Row class="margin-top-10 searchable-table-con1">
+          <Table :columns="columns1" :data="pageUserList"></Table>
+        </Row>
+      </Card>
+      </Col>
+    </Row>
+    <div class="page-style">
+      <Page :total="pageTotal" :current="pageNum" :page-size="pageSize" show-elevator show-total placement="top"
+            @on-change="changePage"></Page>
 
-        </div>
     </div>
+  </div>
 </template>
 
 <script>
