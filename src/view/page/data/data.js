@@ -205,3 +205,18 @@ export const orders = [
     createTime: '2018-08-01 14:25'
   }
 ]
+
+export const roleTitle = [
+  {
+    key: 'name',
+    title: '用户名'
+  },
+  {
+    key: 'slug',
+    title: '权限'
+  },
+  {
+    key: 'createdDate',
+    title: '创建时间'
+  }
+]

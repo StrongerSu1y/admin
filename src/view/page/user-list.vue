@@ -38,7 +38,9 @@
 
 <script>
 import * as data from './data/data'
+import * as consts from './data/const'
 import axios from 'axios'
+import { getToken } from '@/libs/util'
 
 export default {
   name: 'searchable-table',
@@ -58,7 +60,8 @@ export default {
   methods: {
     init () {
       var self = this
-      var url = 'http://10.0.0.24:8100/admin/user/list'
+      var url = consts.baseUrl + 'admin/user/list'
+      var token = 'Bearer ' + getToken()
       axios({
         method: 'get',
         url: url,
@@ -66,7 +69,7 @@ export default {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGUiOjE1MzM1NDQyNzk2OTAsImV4cCI6MTUzNDE0OTA3OSwidXNlcm5hbWUiOiJ3YW5nY2oifQ.bEOoAqmgT1_x8cXgHato_TwxwSEhaco7OJsvaA8mDG4'
+          'Authorization': token
         },
         withCredentials: true
       }).then(function (response) {
