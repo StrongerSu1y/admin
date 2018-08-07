@@ -66,7 +66,7 @@ export default {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGUiOjE1MzI2NTg4OTY1MDIsImV4cCI6MTUzMzI2MzY5NiwidXNlcm5hbWUiOiJ3YW5nY2oifQ.7c8ofidy76Y-PmUd2np0PYnE7amwem4fj_x-DZrFq6U'
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGUiOjE1MzM1NDQyNzk2OTAsImV4cCI6MTUzNDE0OTA3OSwidXNlcm5hbWUiOiJ3YW5nY2oifQ.bEOoAqmgT1_x8cXgHato_TwxwSEhaco7OJsvaA8mDG4'
         },
         withCredentials: true
       }).then(function (response) {

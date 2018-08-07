@@ -1,40 +1,46 @@
 <style lang="less">
-    @import './login.less';
+  @import './login.less';
 </style>
 
 <template>
-    <div class="login" @keydown.enter="handleLogin">
-        <div class="login-con">
-            <Card icon="log-in" title="欢迎登录" :bordered="false">
-                <div class="form-con">
-                    <login-form @on-success-valid="handleSubmit"></login-form>
-                    <p class="login-tip">输入用户名和密码登录</p>
-                </div>
-            </Card>
+  <div class="login" @keydown.enter="handleLogin">
+    <div class="login-con">
+      <Card icon="log-in" title="欢迎登录" :bordered="false">
+        <div class="form-con">
+          <login-form @on-success-valid="handleSubmit"></login-form>
+          <p class="login-tip">输入用户名和密码登录</p>
         </div>
+      </Card>
     </div>
+  </div>
 </template>
 
 <script>
 import LoginForm from '_c/login-form'
-import {mapActions} from 'vuex'
+import axios from 'axios'
+import qs from 'qs'
+import { setToken, TOKEN_KEY } from '@/libs/util'
 
 export default {
   components: {
     LoginForm
   },
   methods: {
-    ...mapActions([
-      'handleLogin',
-      'getUserInfo'
-    ]),
     handleSubmit ({userName, password}) {
-      this.handleLogin({userName, password}).then(res => {
-        this.getUserInfo().then(res => {
-          this.$router.push({
-            name: 'home'
-          })
+      console.log(userName, password)
+      var self = this
+      var url = 'http://10.0.0.24:8100/login'
+      axios.post(url, qs.stringify({
+        username: userName,
+        password: password
+      })).then(function (response) {
+        console.log(response.data.code)
+        setToken(response.data.data)
+        self.$router.push({
+          name: 'home'
         })
+      }).catch(function (error) {
+        console.log(error)
       })
     }
   }
