@@ -19,7 +19,7 @@
 import LoginForm from '_c/login-form'
 import axios from 'axios'
 import qs from 'qs'
-import { setToken, TOKEN_KEY } from '@/libs/util'
+import { setToken } from '@/libs/util'
 
 export default {
   components: {
