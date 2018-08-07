@@ -1,5 +1,4 @@
 import Main from '@/view/main'
-import parentView from '@/components/parent-view'
 
 /**
  * iview-admin中meta除了原生参数外可配置的参数:
@@ -48,7 +47,7 @@ export default [
     name: 'user',
     component: Main,
     meta: {
-      title: '用户',
+      title: '用户'
     },
     children: [
       {
@@ -88,7 +87,7 @@ export default [
           title: '订单管理'
         },
         component: () => import('@/view/page/order-list.vue')
-      },
+      }
     ]
   },
   {
@@ -113,131 +112,32 @@ export default [
         path: '/refuse-pwd',
         name: 'refuse-pwd',
         meta: {
-          icon: 'my-lock',
+          icon: 'md-lock',
           title: '修改密码'
         },
         component: () => import('@/view/page/refuse-pwd.vue')
-      },
-    ]
-  },
-  {
-    path: '/components',
-    name: 'components',
-    meta: {
-      icon: 'logo-buffer',
-      title: '组件'
-    },
-    component: Main,
-    children: [
-      {
-        path: 'count_to_page',
-        name: 'count_to_page',
-        meta: {
-          icon: 'md-trending-up',
-          title: '数字渐变'
-        },
-        component: () => import('@/view/components/count-to/count-to.vue')
-      },
-      // {
-      //   path: 'tables_page',
-      //   name: 'tables_page',
-      //   meta: {
-      //     icon: 'md-grid',
-      //     title: '多功能表格'
-      //   },
-      //   component: () => import('@/view/components/tables/tables.vue')
-      // },
-      {
-        path: 'icons_page',
-        name: 'icons_page',
-        meta: {
-          icon: '_bear',
-          title: '自定义图标'
-        },
-        component: () => import('@/view/components/icons/icons.vue')
       }
     ]
   },
-  // {
-  //     path: '/update',
-  //     name: 'update',
-  //     meta: {
-  //         icon: 'md-cloud-upload',
-  //         title: '数据上传'
-  //     },
-  //     component: Main,
-  //     children: [
-  //         {
-  //             path: 'update_table_page',
-  //             name: 'update_table_page',
-  //             meta: {
-  //                 icon: 'ios-document',
-  //                 title: '上传Csv'
-  //             },
-  //             component: () => import('@/view/update/update-table.vue')
-  //         },
-  //         {
-  //             path: 'update_paste_page',
-  //             name: 'update_paste_page',
-  //             meta: {
-  //                 icon: 'md-clipboard',
-  //                 title: '粘贴表格数据'
-  //             },
-  //             component: () => import('@/view/update/update-paste.vue')
-  //         }
-  //     ]
-  // },
-  // {
-  //     path: '/multilevel',
-  //     name: 'multilevel',
-  //     meta: {
-  //         icon: 'md-menu',
-  //         title: '多级菜单'
-  //     },
-  //     component: Main,
-  //     children: [
-  //         {
-  //             path: 'level_2_1',
-  //             name: 'level_2_1',
-  //             meta: {
-  //                 icon: 'arrow-graph-up-right',
-  //                 title: '二级-1'
-  //             },
-  //             component: () => import('@/view/multilevel/level-2-1.vue')
-  //         },
-  //         {
-  //             path: 'level_2_2',
-  //             name: 'level_2_2',
-  //             meta: {
-  //                 access: ['super_admin'],
-  //                 icon: 'arrow-graph-up-right',
-  //                 showAlways: true,
-  //                 title: '二级-2'
-  //             },
-  //             component: parentView,
-  //             children: [
-  //                 {
-  //                     path: 'level_2_2_1',
-  //                     name: 'level_2_2_1',
-  //                     meta: {
-  //                         icon: 'arrow-graph-up-right',
-  //                         title: '三级'
-  //                     },
-  //                     component: () => import('@/view/multilevel/level-2-2/level-3-1.vue')
-  //                 }
-  //             ]
-  //         },
-  //         {
-  //             path: 'level_2_3',
-  //             name: 'level_2_3',
-  //             meta: {
-  //                 icon: 'arrow-graph-up-right',
-  //                 title: '二级-3'
-  //             },
-  //             component: () => import('@/view/multilevel/level-2-3.vue')
-  //         },
-  //     ]
-  // },
+  {
+    path: '/role',
+    name: 'role',
+    component: Main,
+    meta: {
+      title: '角色'
+    },
+    children: [
+      {
+        path: '/role-list',
+        name: 'role-list',
+        meta: {
+          icon: 'ios-contacts',
+          title: '角色管理'
+        },
+        component: () => import('@/view/page/role-list.vue')
+      }
+    ]
+  },
   {
     path: '/401',
     name: 'error_401',
