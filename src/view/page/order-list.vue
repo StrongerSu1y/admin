@@ -15,7 +15,6 @@
 <script>
 import * as orderList from './data/data'
 import Tables from './order/tables'
-import {getTableData} from '@/api/data'
 
 export default {
   name: 'tables_page',
@@ -24,36 +23,7 @@ export default {
   },
   data () {
     return {
-      columns: [
-        {title: '订单编号', key: 'orderId', sortable: true},
-        {title: '姓名', key: 'name', editable: true},
-        {title: '邮箱', key: 'email', editable: true},
-        {title: '订单商品', key: 'goods', editable: true},
-        {title: '订单时间', key: 'createTime'},
-        {
-          title: 'Handle',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
-                props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
-                },
-                on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
-                  }
-                }
-              }, [
-                h('Button', '自定义删除')
-              ])
-            }
-          ]
-        }
-      ],
+      columns: orderList.ordersTitle,
       pageTotal: 0,
       pageNum: 1,
       pageSize: 15,
@@ -77,11 +47,8 @@ export default {
     }
   },
   mounted () {
-    getTableData().then(res => {
-      // this.tableData = res.data
-      this.pageTotal = this.tableData.length
-      this.pageTableData = this.tableData.slice(0, this.pageSize)
-    })
+    this.pageTotal = this.tableData.length
+    this.pageTableData = this.tableData.slice(0, this.pageSize)
   }
 }
 </script>

@@ -29,6 +29,37 @@ export const userTitle = [
   }
 ]
 
+export const ordersTitle = [
+  {title: '订单编号', key: 'orderId', sortable: true},
+  {title: '姓名', key: 'name', editable: true},
+  {title: '邮箱', key: 'email', editable: true},
+  {title: '订单商品', key: 'goods', editable: true},
+  {title: '订单时间', key: 'createTime'},
+  {
+    title: 'Handle',
+    key: 'handle',
+    options: ['delete'],
+    button: [
+      (h, params, vm) => {
+        return h('Poptip', {
+          props: {
+            confirm: true,
+            title: '你确定要删除吗?'
+          },
+          on: {
+            'on-ok': () => {
+              vm.$emit('on-delete', params)
+              vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
+            }
+          }
+        }, [
+          h('Button', '自定义删除')
+        ])
+      }
+    ]
+  }
+]
+
 export const orders = [
   {
     orderId: '20180013523',
