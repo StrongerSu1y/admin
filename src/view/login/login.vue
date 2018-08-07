@@ -20,6 +20,7 @@ import LoginForm from '_c/login-form'
 import axios from 'axios'
 import qs from 'qs'
 import { setToken } from '@/libs/util'
+import * as consts from '../page/data/const'
 
 export default {
   components: {
@@ -29,7 +30,7 @@ export default {
     handleSubmit ({userName, password}) {
       console.log(userName, password)
       var self = this
-      var url = 'http://10.0.0.24:8100/login'
+      var url = consts.baseUrl + 'login'
       axios.post(url, qs.stringify({
         username: userName,
         password: password
