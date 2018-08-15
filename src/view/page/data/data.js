@@ -49,63 +49,65 @@ export const ordersTitle = [
           on: {
             'on-ok': () => {
               vm.$emit('on-delete', params)
-              vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
+              // vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
+              vm.tableTool(params)
             }
           }
         }, [
           h('Button', '自定义删除')
         ])
       }
-    ]
+    ],
+    tableData: []
   }
 ]
 
 export const orders = [
   {
-    orderId: '20180013523',
+    orderId: '0001',
     name: 'wangcj',
     email: 'wcj19@163.com',
     goods: '手表',
     createTime: '2018-08-01 14:25'
   },
   {
-    orderId: '201800187434',
+    orderId: '0002',
     goods: '手表',
     name: 'wangchangfjun',
     email: 'wcj19@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
-    orderId: '201800126262',
+    orderId: '0003',
     goods: '手表',
     name: 'wcj',
     email: 'wcj19921220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
-    orderId: '201800163467',
+    orderId: '0004',
     goods: '手表',
     name: 'guanbao',
     email: 'wcj12163.com',
     createTime: '2018-08-01 14:25'
   },
   {
-    orderId: '201800186422',
+    orderId: '0005',
     goods: '手表',
     name: 'meimei',
     email: 'wcj199210@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
-    orderId: '20180011515',
+    orderId: '0006',
     goods: '手表',
     name: 'renyan',
     email: 'wcj19920@3.com',
     createTime: '2018-08-01 14:25'
   },
   {
-    name: 'xulihui',
-    orderId: '468464646',
+    name: 'nihao',
+    orderId: '0007',
     goods: '手表',
     email: 'wcj19921@163.com',
     createTime: '2018-08-01 14:25'
@@ -113,7 +115,7 @@ export const orders = [
 
   {
     name: 'huiyuanyi',
-    orderId: '20180015656884',
+    orderId: '0008',
     goods: '手表',
     email: 'wcj11220@163.com',
     createTime: '2018-08-01 14:25'
@@ -121,7 +123,7 @@ export const orders = [
 
   {
     name: 'shentangk',
-    orderId: '201800146226',
+    orderId: '0009',
     goods: '手表',
     email: 'j19921220@163.com',
     createTime: '2018-08-01 14:25'
@@ -129,77 +131,77 @@ export const orders = [
 
   {
     name: 'wangfei',
-    orderId: '20180015776',
+    orderId: '0010',
     goods: '手表',
     email: '19921220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'fangah',
-    orderId: '20180013156',
+    orderId: '0011',
     goods: '手表',
     email: 'wcj21220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'xueyu',
-    orderId: '2018001883725',
+    orderId: '0012',
     goods: '手表',
     email: 'wcj19920@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'yikan',
-    orderId: '2018001156464',
+    orderId: '0013',
     goods: '手表',
     email: 'wcj121220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'xiaogui',
-    orderId: '20180015234657',
+    orderId: '0014',
     goods: '手表',
     email: 'wcj21220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'ziran',
-    orderId: '2018001154656',
+    orderId: '0015',
     goods: '手表',
     email: 'wcj19920@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'wangcj',
-    orderId: '2018001654732',
+    orderId: '0016',
     goods: '手表',
     email: 'wcj121220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'zengjia',
-    orderId: '20180011565435',
+    orderId: '0017',
     goods: '手表',
     email: 'wcj21220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'wangcj',
-    orderId: '2018001646543',
+    orderId: '0018',
     goods: '手表',
     email: 'wcj19920@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'mumu',
-    orderId: '201800136446724',
+    orderId: '0019',
     goods: '手表',
     email: 'wcj121220@163.com',
     createTime: '2018-08-01 14:25'
   },
   {
     name: 'fnanf',
-    orderId: '201800134645215',
+    orderId: '0020',
     goods: '手表',
     email: 'w19921220@163.com',
     createTime: '2018-08-01 14:25'

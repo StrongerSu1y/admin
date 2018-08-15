@@ -86,7 +86,7 @@ export default [
           icon: '_qq',
           title: '订单管理'
         },
-        component: () => import('@/view/page/order-list.vue')
+        component: () => import('@/view/page/order/order-list.vue')
       }
     ]
   },

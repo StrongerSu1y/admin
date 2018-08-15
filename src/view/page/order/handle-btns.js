@@ -8,7 +8,8 @@ const btns = {
       on: {
         'on-ok': () => {
           vm.$emit('on-delete', params)
-          vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
+          // vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
+          vm.tableTool(params)
         }
       }
     }, [
@@ -19,8 +20,8 @@ const btns = {
       }, [
         h('Icon', {
           props: {
-            type: 'trash-b',
-            size: 16
+            type: 'md-trash',
+            size: 18,
           }
         })
       ])

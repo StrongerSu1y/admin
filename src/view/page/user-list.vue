@@ -13,14 +13,24 @@
           请输入查询条件
         </p>
         <Row>
-          用户名&nbsp;&nbsp;&nbsp;&nbsp;<Input v-model="searchConName" @on-change="handleSearch2" icon="search"
-                                            placeholder="请输入姓名..."
-                                            style="width: 200px"/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号码&nbsp;&nbsp;&nbsp;&nbsp;<Input v-model="searchConTel"
-                                                                                             @on-change="handleSearch2"
-                                                                                             icon="search"
-                                                                                             placeholder="请输入手机号..."
-                                                                                             style="width: 200px"/>
+          <span>用户名</span>
+          <Input 
+            class="nameInput" 
+            v-model="searchConName" 
+            @on-change="handleSearch2" 
+            icon="search"
+            placeholder="请输入姓名..."
+            style="width: 200px"
+          />
+          <span class="mob">手机号码</span>
+          <Input 
+            class="nameInput" 
+            v-model="searchConTel"
+            @on-change="handleSearch2"
+            icon="search"
+            placeholder="请输入手机号..."
+            style="width: 200px"
+          />
         </Row>
         <Row class="margin-top-10 searchable-table-con1">
           <Table :columns="columns1" :data="pageUserList"></Table>
@@ -29,9 +39,14 @@
       </Col>
     </Row>
     <div class="page-style">
-      <Page :total="pageTotal" :current="pageNum" :page-size="pageSize" show-elevator show-total placement="top"
-            @on-change="changePage"></Page>
-
+      <Page 
+        :total="pageTotal" 
+        :current="pageNum" 
+        :page-size="pageSize" 
+        show-elevator show-total 
+        placement="top"
+        @on-change="changePage">
+      </Page>
     </div>
   </div>
 </template>
